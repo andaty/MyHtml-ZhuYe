@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试</title>
+  </head>
+  <body></body>
+  <script language="JavaScript">
+    function ScreenWidth() {
+      //获取屏幕尺寸，判断PC端或移动端
+
+      if (
+        /phone|pad|pod|iPhone|iPod|ios|iPad|Android|Fennec|BlackBerry|Mobile|IEMobile|MQQBrowser|JUC|Fennec|WosBrowser|BrowserNG|WebOS|Symbian|Windows Phone/i.test(
+          navigator.userAgent
+        )
+      ) {
+        //如果是移动端，则跳转到移动端对应的页面；否则，跳转到PC端对应的页面
+
+        window.location.href = "/SJD/index.html";
+      } else {
+        window.location.href = "/DND/index.html";
+      }
+    }
+  </script>
+</html>
