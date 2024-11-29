@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计算器</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .calculator {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        width: 240px;
+      }
+      .display {
+        width: 100%;
+        margin-bottom: 10px;
+        height: 40px;
+        text-align: right;
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
+      .keys button {
+        width: 23%;
+        margin: 1%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" class="display" id="display" disabled />
+      <div class="keys">
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="deleteLast()">DEL</button>
+        <button onclick="input('%')">%</button>
+        <button onclick="input('√')">√</button>
+        <button onclick="input('π')">π</button>
+        <button onclick="input('1')">1</button>
+        <button onclick="input('2')">2</button>
+        <button onclick="input('3')">3</button>
+        <button onclick="input('+')">+</button>
+        <button onclick="input('4')">4</button>
+        <button onclick="input('5')">5</button>
+        <button onclick="input('6')">6</button>
+        <button onclick="input('-')">-</button>
+        <button onclick="input('7')">7</button>
+        <button onclick="input('8')">8</button>
+        <button onclick="input('9')">9</button>
+        <button onclick="input('*')">*</button>
+        <button onclick="input('/')">/</button>
+        <button onclick="input('^')">^</button>
+        <button onclick="calculate()">=</button>
+      </div>
+    </div>
+
+    <script>
+      let display = document.getElementById("display");
+      let currentInput = "";
+      let previousInput = "";
+      let operation = null;
+
+      function input(value) {
+        if (
+          currentInput === "" &&
+          ["+", "-", "*", "/", "^", "√", "%"].includes(value)
+        ) {
+          return;
+        }
+        currentInput += value;
+        display.value = currentInput;
+      }
+
+      function clearDisplay() {
+        currentInput = "";
+        display.value = "";
+        previousInput = "";
+        operation = null;
+      }
+
+      function deleteLast() {
+        currentInput = currentInput.substring(0, currentInput.length - 1);
+        display.value = currentInput;
+      }
+
+      function calculate() {
+        if (operation && previousInput && currentInput) {
+          let result = compute(previousInput, currentInput, operation);
+          display.value = result;
+          previousInput = result;
+          currentInput = "";
+          operation = null;
+        }
+      }
+
+      function setOperation(op) {
+        if (previousInput === "" || operation) {
+          return;
+        }
+        operation = op;
+        previousInput = currentInput;
+        currentInput = "";
+      }
+
+      function compute(a, b, op) {
+        a = parseFloat(a);
+        b = parseFloat(b);
+        switch (op) {
+          case "+":
+            return a + b;
+          case "-":
+            return a - b;
+          case "*":
+            return a * b;
+          case "/":
+            return a / b;
+          case "^":
+            return Math.pow(a, b);
+          case "√":
+            return Math.sqrt(b);
+          case "%":
+            return b / 100;
+          default:
+            return null;
+        }
+      }
+    </script>
+  </body>
+</html>
+<h1>可能用不了，等以后开发吧</h1>
