@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <link rel="shortcut icon" href="./favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>起始页</title>
+</head>
+<style>
+  .Flex {
+    /*弹性布局*/
+    display: flex
+  }
+
+  .YuanJiao {
+    /* 圆角效果 */
+    border-radius: 10px
+  }
+  .Gezi {
+  /* 通用div效果 */
+  height: auto;
+  flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  border: 1px solid #fff;
+}
+.Gezi::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  filter: blur(5px);
+  z-index: -1;
+}
+.a {
+    /* 超链接字体颜色效果 */
+    text-decoration: none;
+    color:rgb(175,208,242);
+  }
+
+  .a:hover {
+    /* 超链接字体悬浮效果 */
+    color: rgb(251, 247, 216);
+  }
+
+  .WZJZ {
+    /* 文字居中 */
+    display: flex;
+    /* 使用flex布局 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+  }
+</style>
+</head>
+
+<body
+  style="background-size: 100% 100%;
+  background-attachment: fixed;
+  flex-direction:column;
+  background-image: url('./BeiJing.png');"
+  class="Flex">
+  <div style="height: 60px;" 
+  class="YuanJiao Flex Gezi">
+    <h1 style="margin: auto;">欢迎来到我の狗窝</h1>
+  </div>
+  <div class="YuanJiao Flex Gezi" 
+  style="flex-wrap:wrap;
+  margin-top: 10px;
+  padding: 10px;
+  justify-content:center;">
+    <div style="height: 30px; background-color:rgb(0,60,117); padding-left:5px;padding-right: 5px;" class="WZJZ YuanJiao">
+      <a href="https://b23.tv/vLsMpud" class="a a:hover">作者bilibili主页</a>
+
+    </div>
+    <div
+      style="margin-left: 20px; height: 30px; background-color:rgb(0,60,117); width: auto; padding-left:5px;padding-right: 5px;"
+      class="WZJZ YuanJiao">
+      <a href="GTXX4/GTXX4.html" class="a a.hover" target="_blank">钢铁雄心4专区</a>
+    </div>
+    <div
+    style="margin-left: 20px; height: 30px; background-color:rgb(0,60,117); width: auto; padding-left:5px;padding-right: 5px;"
+    class="WZJZ YuanJiao"><a href="GOGA/GongGao.html" class="a a:hover" target="_blank">公告</a></div>
+  </div>
+  </div>
+  <div class="Gezi YuanJiao" style="margin-top: 10px;padding-left: 15px;padding-right: 15px;">
+    <p>你好，欢迎来到CynBlaze的公开网站，这是一个初中生自主编写的网站，同时也是我前端开发的第一个启蒙</p>
+    <p>这是网站的V2.21版本，V1已经被抛弃喽(～￣▽￣)～，网址也改了。老规矩，一样还会分享好玩的东西</p>
+    <p>由于作者本人深受毒盘等流氓网盘的恶心，本工作室上传的资源只会上传123网盘和蓝奏云（不常用）网盘</p>
+    <p>还可以加群（迫真,压根没群）聊聊好玩的事，加好友玩玩游戏什么的</p>
+  </div>
+  <div class="Gezi YuanJiao" style="margin-top: 10px; padding: 10px;text-align: center;">
+    <p style="font-size: 11px">天狼星工作室</p>
+    <p style="font-size: 11px">© 2024 Sirius Home. All Rights Reserved</p>
+</body>
+</html>
